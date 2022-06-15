@@ -1413,6 +1413,24 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+	name: "android.hardware.sensors@1.0-impl",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/hw/android.hardware.sensors@1.0-impl.so"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	relative_install_path: "hw",
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
 	name: "camera.qcom",
 	owner: "xiaomi",
 	strip: {
@@ -2969,6 +2987,19 @@ cc_prebuilt_binary {
 	strip: {
 		none: true,
 	},
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_binary {
+	name: "android.hardware.sensors@1.0-service",
+	owner: "xiaomi",
+	srcs: ["proprietary/vendor/bin/hw/android.hardware.sensors@1.0-service"],
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	relative_install_path: "hw",
 	prefer: true,
 	soc_specific: true,
 }
